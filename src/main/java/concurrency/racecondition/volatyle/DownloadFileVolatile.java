@@ -1,7 +1,5 @@
 package concurrency.racecondition.volatyle;
 
-import concurrency.racecondition.volatyle.DownloadStatus;
-
 public class DownloadFileVolatile implements Runnable {
 
     private final DownloadStatus status;

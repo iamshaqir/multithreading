@@ -1,16 +1,3 @@
-Thread Lifecycle:
--------------------------
-1. NEW
-2. RUNNABLE
-3. RUNNING
-4. BLOCKED/WAITING
-5. TERMINATED
-
-Thread.join():
--------------------------
-join() method forces the thread to wait until the specified thread performs the operation, this is use when you need
-one thread to be finished, before other thread is processed.
-
 Race Condition:
 -------------------------
 When multiple threads trying to perform same operation on a shared resource/object and attempt to modify it
@@ -38,16 +25,3 @@ combine them after performing the operation.
     to perform the operation, see the example in synchronization package. Use Dedicated monitor objects.
 4. Atomic Objects: Using Inbuilt Atomic Objects.
 5. Partitioning: Using concurrent collection objects.
-
-Visibility problem:
--------------------
-If one thread changes the data, and it is not visible to other threads Visibility problem occurs,
-different threads have different view of the shared data.
-
-This occurs only if multiple threads tries to modify the shared data. If they just read the data it is not an issue.
-
-volatile keyword is used to solve the problem, it ensures that a variable's value is always read directly from main
-memory instead of a local cache.
-
-CPU maintains a cache of variable for performance improvements, when multiple threads reads data, they get it from cache,
-volatile keyword flushes cache memory and forces CPU to read the latest value from main memory.

@@ -3,7 +3,7 @@ package concurrency.racecondition.volatyle;
 public class DownloadStatus {
 
     private int totalBytes;
-    private volatile boolean done = false;
+    private boolean done = false;
 
     public int getTotalBytes() {
         return totalBytes;

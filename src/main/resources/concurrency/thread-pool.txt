@@ -1,0 +1,10 @@
+Thread Pool:
+-------------------
+ Thread pool has a pool of threads which is reused to execute the tasks, so that one thread can execute multiple tasks.
+ Rather using a new thread for each task we can make use of thread pool with predefined threads.
+
+- Creating a new thread for each task comes with performance overhead as compared to reusing that thread already created.
+- Using thread pool makes it easier to control how many thread are created and active at a time, as each thread may
+  consume certain amount of computer resources such as RAM and if we create many threads it may slow down the computer.
+- Java has an internal ThreadPool, ExecutorService, however you may implement a custom Thread pool.
+- ThreadPool internally make use of BlockingQueue.

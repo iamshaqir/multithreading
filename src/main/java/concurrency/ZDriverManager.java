@@ -1,7 +1,6 @@
 package concurrency;
 
 
-import concurrency.joinmethod.ThreadDemoJoin;
 import concurrency.racecondition.volatyle.ThreadDemoVolatile;
 
 public class ZDriverManager {
@@ -10,8 +9,8 @@ public class ZDriverManager {
 //        ThreadDemo.show();
 //        ThreadDemoConfinement.show();
 //        ThreadDemoLock.show();
-//        ThreadDemoVolatile.show();
+        ThreadDemoVolatile.show();
 
-        ThreadDemoJoin.show();
+//        ThreadDemoJoin.show();
     }
 }

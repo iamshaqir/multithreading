@@ -16,6 +16,5 @@ public class ThreadDemoVolatile {
         });
         thread1.start();
         thread2.start();
-
     }
 }

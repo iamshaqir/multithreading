@@ -1,0 +1,31 @@
+Deadlock:
+-------------------
+A deadlock occurs when two or more threads are blocked forever, trying to obtain the lock from other thread which is
+already in deadlock, locked by other thread.
+
+Let's suppose there are two Threads T1, T2 and Locks L1, L2----
+
+T1 - locked L1
+T2 - locked L2
+T1 waiting for L2 which is already locked by T2.
+T2 waiting for L1 which is already locked by T1.
+
+In the above situation,
+T1 is waiting for T2 to release L2
+T2 is waiting for T1 to release L1
+causing Deadlock.
+
+Condition for deadlock to occur,
+
+1. Mutual Exclusion: Only one thread can use resource at a time, excluding all other threads from accessing/locking.
+2. No preemption: Resources cannot be preempted(forcibly taken) from threads.
+3. Hold and Wait: A thread holds at least one resource and waits for another.
+4. Circular wait: A circular chain of threads exists, each waiting for a resource held by the next.
+
+Deadlock prevention techniques:
+--------------------------------
+1. Lock ordering:
+    Deadlock occurs when multiple threads need the same locks but obtain them in different order. If you make sure that all
+    locks are always taken in the same order by any thread, deadlocks cannot occur
+
+2. TIme based locking: Release lock after timeout

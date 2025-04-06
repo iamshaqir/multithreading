@@ -1,0 +1,12 @@
+Visibility problem:
+-------------------
+If one thread changes the data, and it is not visible to other threads Visibility problem occurs,
+different threads have different view of the shared data.
+
+This occurs only if multiple threads tries to modify the shared data. If they just read the data it is not an issue.
+
+volatile keyword is used to solve the problem, it ensures that a variable's value is always read directly from main
+memory instead of a local cache.
+
+CPU maintains a cache of variable for performance improvements, when multiple threads reads data, they get it from cache,
+volatile keyword flushes cache memory and forces CPU to read the latest value from main memory.
