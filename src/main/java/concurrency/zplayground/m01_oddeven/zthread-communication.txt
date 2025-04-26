@@ -1,0 +1,46 @@
+When you are working with Concurrent application, Thread Signaling/Inter Thread Communication plays a crucial role in
+your design. Thread signalling gives us a comfort of making a Thread on same monitor object to wait, until other Thread
+finishes some operation on same monitor object and send a release signal to waiting thread.
+
+Java uses its Object class methods i.e., wait(), notify() and notifyAll() for Thread signalling.
+
+To understand more about it, I've used a basic problem statement,
+
+Print Odd and Even numbers using 2 Threads,
+- Print Odd numbers using one thread and Even numbers using other thread
+- Format should be 1 2 3 4 5 6 7 8 9 10 or ODD,EVEN,ODD,EVEN,ODD....
+- Lock Threads and use wait(), notify()/notifyAll() methods
+- Any other preferred approach
+
+There are many approaches for Thread Signaling old and modern using,
+- synchronized method or synchronized blocks with wait(), notify() and notifyAll()
+- Reentrant lock with set of Conditions using await() and signal()
+- Semaphore with acquire() and release()
+
+I prefer Reentrant with Conditions which is more flexible and readable. Here I have explained about old approach,
+If you want other approaches, refer my GitHub repository.
+
+Explanation:
+- Start two Threads either with Runnable or lambda expressions
+- Shared object(Printer) will have printEven and printOdd methods
+- As we are starting from 1 we wil print Odd first, we used a boolean isOddTurn to first start with Odd.
+- Made it as volatile to make Threads get it directly from memory rather than cache.
+- Here, Thread - 1 is ODD and Thread - 2 is EVEN
+- Let's suppose Thread scheduler gave an opportunity to Thread-1, which is ODD and calls printOdd method
+- Inside, we use while condition too check whether its ODD's turn or EVEN's, now that it is ODD's turn we print ODD
+  and make ODD as false, so that if Thread - 1 again gets an opportunity it should go to wait state.
+- Same goes with the Thread - 2 util maximum limit of number is reached.
+
+Learnings:
+- Thread signalling methods can only be called from critical sections i.e., synchronized sections because that's how
+  you can create a monitor object, without monitor object Thread signalling won't work. id you try you'll get
+  IllegalMonitorStateException: current thread is not owner
+- Threads can wait or notify on same monitor object, if it detects other monitor object it will
+  throw IllegalMonitorStateException: current thread is not owner
+- When wait() is called the calling thread releases the lock on the monitor object and is blocked() until
+  another thread calls notify() or notifyAll() on the monitor object.
+- When Second thread calls notify() on the monitor object, it will wake up first thread blocked inside a wait() but
+  awakened thread can exit the wait() method until the thread calling notify() has released the lock on the
+  monitor object, which means only after method exit.
+- Spurious Wakeups - it is possible for threads to wake up even if notify() and notifyAll() has not been called, use
+  while loop instead of if loop which is also called a spin lock. Awakened thread spins until certain condition is met.
