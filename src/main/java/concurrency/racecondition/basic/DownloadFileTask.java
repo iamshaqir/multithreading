@@ -1,6 +1,5 @@
-package concurrency.racecondition;
+package concurrency.racecondition.basic;
 
-import concurrency.racecondition.synchronization.DownloadStatus;
 
 public class DownloadFileTask implements Runnable {
     private final DownloadStatus downloadStatus;
@@ -15,7 +14,6 @@ public class DownloadFileTask implements Runnable {
         for (int i = 0; i < 10_000; i++) {
             if (Thread.currentThread().isInterrupted()) return;
             downloadStatus.incrementTotalBytes();
-            downloadStatus.incrementTotalFiles();
         }
     }
 }

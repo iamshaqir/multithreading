@@ -8,5 +8,4 @@ Thread Lifecycle:
 
 Thread.join():
 -------------------------
-join() method forces the thread to wait until the specified thread performs the operation, this is used when you need
-one thread to be finished, before other thread is processed.
+join() method forces the thread to wait until the specified thread performs the operation, this is used when you need one thread to be finished, before other thread is processed.

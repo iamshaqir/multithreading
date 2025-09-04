@@ -1,4 +1,4 @@
-package concurrency.racecondition;
+package concurrency.racecondition.basic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ public class ThreadDemo {
      * the same resource which may cause <b>Race condition<b/>
      */
     public static void show() {
-        var downloadStatus = new concurrency.racecondition.synchronization.DownloadStatus();
+        var downloadStatus = new DownloadStatus();
         List<Thread> threads = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
@@ -28,6 +28,5 @@ public class ThreadDemo {
         }
 
         System.out.printf("Total bytes: %d \n", downloadStatus.getTotalBytes());
-        System.out.printf("Total Files: %d", downloadStatus.getTotalFiles());
     }
 }

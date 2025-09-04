@@ -1,6 +1,6 @@
 package concurrency.racecondition.confinement;
 
-import concurrency.racecondition.DownloadStatus;
+import concurrency.racecondition.basic.DownloadStatus;
 
 public class DownloadFileConfinement implements Runnable {
 

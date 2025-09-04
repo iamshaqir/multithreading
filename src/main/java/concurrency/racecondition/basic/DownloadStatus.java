@@ -1,4 +1,4 @@
-package concurrency.racecondition;
+package concurrency.racecondition.basic;
 
 public class DownloadStatus {
     private int totalBytes;

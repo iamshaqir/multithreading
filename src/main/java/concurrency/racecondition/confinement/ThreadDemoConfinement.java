@@ -1,6 +1,6 @@
 package concurrency.racecondition.confinement;
 
-import concurrency.racecondition.DownloadStatus;
+import concurrency.racecondition.basic.DownloadStatus;
 
 import java.util.ArrayList;
 import java.util.List;
