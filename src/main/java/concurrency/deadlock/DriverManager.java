@@ -11,7 +11,7 @@ public class DriverManager {
         Lock lock2 = new ReentrantLock();
 
         Thread thread1 = new Thread(new Runnable1(lock1, lock2));
-        Thread thread2 = new Thread(new Runnable2(lock1, lock2));
+        Thread thread2 = new Thread(new Runnable2(lock2, lock1));
 
         thread1.start();
         thread2.start();

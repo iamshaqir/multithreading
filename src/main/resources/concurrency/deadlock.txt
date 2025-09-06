@@ -17,7 +17,7 @@ causing Deadlock.
 
 Condition for deadlock to occur,
 
-1. Mutual Exclusion: Only one thread can use resource at a time, excluding all other threads from accessing/locking.
+1. Mutual Exclusion:
 2. No preemption: Resources cannot be preempted(forcibly taken) from threads.
 3. Hold and Wait: A thread holds at least one resource and waits for another.
 4. Circular wait: A circular chain of threads exists, each waiting for a resource held by the next.
@@ -28,4 +28,4 @@ Deadlock prevention techniques:
     Deadlock occurs when multiple threads need the same locks but obtain them in different order. If you make sure that all
     locks are always taken in the same order by any thread, deadlocks cannot occur
 
-2. TIme based locking: Release lock after timeout
+2. Time based locking: Release lock after timeout
